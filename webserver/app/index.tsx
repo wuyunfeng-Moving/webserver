@@ -21,6 +21,18 @@ export default function HomeScreen() {
         <ThemedText type="title">我的播客</ThemedText>
       </ThemedView>
 
+      <ThemedView style={styles.profileContainer}>
+        {/* <Image
+          source={require('@/assets/images/avatar.png')}
+          style={styles.avatar}
+        /> */}
+        <ThemedView style={styles.profileInfo}>
+          <ThemedText type="subtitle">播主名称</ThemedText>
+          <ThemedText>科技领域播客主持人</ThemedText>
+          <ThemedText type="defaultSemiBold">已发布 42 集</ThemedText>
+        </ThemedView>
+      </ThemedView>
+
       <Pressable onPress={() => router.push('/latest-episode')}>
         <ThemedView style={styles.episodeContainer}>
           <ThemedText type="subtitle">最新一集</ThemedText>
@@ -72,5 +84,23 @@ const styles = StyleSheet.create({
     bottom: 0,
     position: 'absolute',
     resizeMode: 'cover',
+  },
+  profileContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    marginBottom: 20,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    marginRight: 16,
+  },
+  profileInfo: {
+    flex: 1,
+    gap: 4,
   },
 });
