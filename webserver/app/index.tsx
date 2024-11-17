@@ -44,6 +44,9 @@ export default function HomeScreen() {
           </ExternalLink>
           <ThemedText>一个用于记录生活和技术的博客</ThemedText>
         </View>
+        <Pressable onPress={() => router.push('/blog')}>
+          <ThemedText type="defaultSemiBold">本地博客</ThemedText>
+        </Pressable>
       </ThemedView>
 
       
