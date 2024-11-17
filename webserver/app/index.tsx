@@ -1,24 +1,25 @@
-import { Image, StyleSheet, Platform, Pressable } from 'react-native';
+import { Image, StyleSheet, Platform, Pressable, View } from 'react-native';
 import { router } from 'expo-router';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ExternalLink } from '@/components/ExternalLink';
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#8B4513', dark: '#2F1810' }}
-      // headerImage={
-      //   <Image
-      //     source={require('@/assets/images/podcast-hero.png')}
-      //     style={styles.podcastLogo}
-      //   />
-      // }
+      headerImage={
+        <Image
+          source={require('@/assets/images/57.jpeg')}
+          style={styles.podcastLogo}
+        />
+      }
       >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">我的播客</ThemedText>
+        <ThemedText type="title">我的个人主页</ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.profileContainer}>
@@ -27,41 +28,27 @@ export default function HomeScreen() {
           style={styles.avatar}
         /> */}
         <ThemedView style={styles.profileInfo}>
-          <ThemedText type="subtitle">播主名称</ThemedText>
-          <ThemedText>科技领域播客主持人</ThemedText>
-          <ThemedText type="defaultSemiBold">已发布 42 集</ThemedText>
+          <ThemedText type="subtitle">我目前正在做的项目</ThemedText>
+          <ExternalLink href="https://github.com/wuyunfeng-Moving/localsocialforkids">
+            <ThemedText type="defaultSemiBold">localsocialforkids</ThemedText>
+          </ExternalLink>
+          <ThemedText>一个面向儿童的社交平台</ThemedText>
+          <ExternalLink href="https://github.com/wuyunfeng-Moving/webserver">
+            <ThemedText type="defaultSemiBold">webserver</ThemedText>
+          </ExternalLink>
+          <ThemedText>一个用于管理本地社交平台的web服务端</ThemedText>
         </ThemedView>
+        <View style={styles.profileInfo}>
+          <ExternalLink href="https://github.com/wuyunfeng-Moving/blog">
+            <ThemedText type="defaultSemiBold">我的博客</ThemedText>
+          </ExternalLink>
+          <ThemedText>一个用于记录生活和技术的博客</ThemedText>
+        </View>
       </ThemedView>
 
-      <Pressable onPress={() => router.push('/latest-episode')}>
-        <ThemedView style={styles.episodeContainer}>
-          <ThemedText type="subtitle">最新一集</ThemedText>
-          <ThemedText>
-            探讨人工智能的未来发展
-          </ThemedText>
-          <ThemedText type="defaultSemiBold">
-            45分钟 · 2024年3月20日
-          </ThemedText>
-        </ThemedView>
-      </Pressable>
-
-      <Pressable onPress={() => router.push('/popular')}>
-        <ThemedView style={styles.episodeContainer}>
-          <ThemedText type="subtitle">热门推荐</ThemedText>
-          <ThemedText>
-            查看最受欢迎的播客内容
-          </ThemedText>
-        </ThemedView>
-      </Pressable>
-
-      <Pressable onPress={() => router.push('/categories')}>
-        <ThemedView style={styles.episodeContainer}>
-          <ThemedText type="subtitle">播客分类</ThemedText>
-          <ThemedText>
-            科技 · 文化 · 教育 · 娱乐
-          </ThemedText>
-        </ThemedView>
-      </Pressable>
+      
+      
+      
     </ParallaxScrollView>
   );
 }
@@ -79,11 +66,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
   podcastLogo: {
-    height: 200,
+    height: '100%',
     width: '100%',
     bottom: 0,
     position: 'absolute',
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
   profileContainer: {
     flexDirection: 'row',
