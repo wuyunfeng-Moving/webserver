@@ -7,7 +7,7 @@
     "build": "tsc",
     "serve": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "scp -r * root@114.55.64.28:/usr/webserver/server"
+    "deploy": "scp -r *.ts src/ root@114.55.64.28:/usr/webserver/server"
   },
   "keywords": [],
   "author": "",

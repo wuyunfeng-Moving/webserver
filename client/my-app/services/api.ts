@@ -1,7 +1,8 @@
 import { Message, Blog } from '@/shared/types';
 
-// const API_URL = 'http://114.55.64.28:3000';
-const API_URL = 'http://localhost:3000';
+// 使用环境变量
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:3000';
+
 export const api = {
   messages: {
     getAll: async (): Promise<Message[]> => {

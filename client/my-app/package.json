@@ -3,14 +3,14 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "start": "cross-env EXPO_PUBLIC_API_URL=http://localhost:3000 expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "deploy:linux": "npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist"
+    "deploy:linux": "cross-env EXPO_PUBLIC_API_URL=http://114.55.64.28:3000 npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist"
   },
   "jest": {
     "preset": "jest-expo"
