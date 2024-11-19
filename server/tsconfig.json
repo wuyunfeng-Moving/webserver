@@ -7,9 +7,16 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
       "outDir": "./dist",
-      "rootDir": ".",
-      "moduleResolution": "node"
+      "rootDir": "..",
+      "moduleResolution": "node",
+      "baseUrl": "..",
+      "paths": {
+        "@/*": ["./*"]
+      }
     },
-    "include": ["./**/*"],
+    "include": [
+      "./server.ts",
+      "../shared/**/*"
+    ],
     "exclude": ["node_modules"]
-  }
+}

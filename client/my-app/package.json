@@ -9,7 +9,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "deploy:linux": "npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist"
   },
   "jest": {
     "preset": "jest-expo"

@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && cd my-app && npm start",
+    "dev": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "deploy_client": "cd client/my-app && npm run deploy:linux",
+    "deploy_server": "cd server && npm run deploy",
+    "deploy:force": "node scripts/deploy/deploy.js --force"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +19,11 @@
     "client",
     "server",
     "shared"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3"
+  }
 }
