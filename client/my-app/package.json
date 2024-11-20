@@ -10,7 +10,9 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "deploy:linux": "cross-env EXPO_PUBLIC_API_URL=http://114.55.64.28:3000 npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist"
+    "deploy:linux0": "cross-env EXPO_PUBLIC_API_URL=http://121.196.198.126:3000 npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist",
+    "deploy:linux1": "cross-env EXPO_PUBLIC_API_URL=http://114.55.64.28:3000 npx expo export && scp -r ./dist/* root@114.55.64.28:/usr/webserver/dist"
+
   },
   "jest": {
     "preset": "jest-expo"

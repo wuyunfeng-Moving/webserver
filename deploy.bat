@@ -22,7 +22,7 @@ echo test
 
 :: 执行部署命令
 echo [%date% %time%] Running npm run deploy... >> %LOGFILE%
-call npm run deploy:linux >> %LOGFILE% 2>&1
+call npm run deploy:linux1 >> %LOGFILE% 2>&1
 if %ERRORLEVEL% EQU 0 (
     echo [%date% %time%] Deployment successful! >> %LOGFILE%
     echo Deployment successful!
@@ -34,7 +34,7 @@ if %ERRORLEVEL% EQU 0 (
 )
 
 cd ../../server
-call npm run deploy >> %LOGFILE% 2>&1
+call npm run deploy1 >> %LOGFILE% 2>&1
 
 echo [%date% %time%] Deployment process completed >> %LOGFILE%
 echo Deployment process completed. Check %LOGFILE% for details
