@@ -26,8 +26,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Debug Client",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/client",
+            "url": "http://localhost:8081",
+            "webRoot": "${workspaceFolder}/client/my-app",
             "sourceMapPathOverrides": {
                 "webpack:///src/*": "${webRoot}/src/*"
             }

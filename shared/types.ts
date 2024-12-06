@@ -35,3 +35,9 @@ export interface LoginCredentials {
     username: string;
     password: string;
 }
+
+export interface BlogCreate {
+    title: string;
+    content: string;
+    category: string;
+}

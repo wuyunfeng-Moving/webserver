@@ -88,4 +88,30 @@ export const api = {
       return data.data;
     },
   },
+  utils: {
+    fetchUrlTitle: async (url: string): Promise<{ title: string | null }> => {
+      try {
+        // 通过我们自己的后端代理来获取标题
+        const response = await fetch(`${API_URL}/utils/fetch-title`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch title');
+        }
+
+        const data = await response.json();
+        return {
+          title: data.title || null
+        };
+      } catch (error) {
+        console.error('Error fetching title:', error);
+        return { title: null };
+      }
+    },
+  },
 }; 

@@ -301,6 +301,22 @@ app.put('/blogs/:id', (req, res) => {
         res.status(400).json(response);
     }
 });
+app.post('/utils/fetch-title', async (req, res) => {
+    try {
+        const { url } = req.body;
+        const response = await fetch(url);
+        const html = await response.text();
+        const titleMatch = html.match(/<title>(.*?)<\/title>/i);
+        const h1Match = html.match(/<h1[^>]*>(.*?)<\/h1>/i);
+        res.json({
+            title: titleMatch?.[1] || h1Match?.[1] || null
+        });
+    }
+    catch (error) {
+        console.error('Error fetching title:', error);
+        res.json({ title: null });
+    }
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

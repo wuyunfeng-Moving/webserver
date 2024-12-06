@@ -56,15 +56,16 @@ export default function BlogsScreen() {
   // 修改 content 的处理函数
   const handleContentChange = async (text: string) => {
     setContent(text);
-    const url = extractUrl(text);
+    const extractedUrl = extractUrl(text);
     
-    if (url) {
+    if (extractedUrl && extractedUrl !== url) {
+      setUrl(extractedUrl);
       setIsLoadingTitle(true);
       try {
-        const response = await api.utils.fetchUrlTitle(url);
-        if (response.title) {
-          // 替换内容中的URL为标题
-          const newContent = text.replace(url, response.title);
+        const { title } = await api.utils.fetchUrlTitle(extractedUrl);
+        if (title) {
+          // 只在成功获取标题时替换内容
+          const newContent = text.replace(extractedUrl, `${title} (${extractedUrl})`);
           setContent(newContent);
         }
       } catch (error) {

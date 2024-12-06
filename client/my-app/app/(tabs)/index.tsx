@@ -74,11 +74,12 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">欢迎光临，这是我个人网站</ThemedText>
         <HelloWave />
-        <ThemedText type="subtitle">
+      </ThemedView>
+
+      <ThemedText type="default">
           我叫吴云峰，是一个小镇做题家出生的计算机应用开发者，个人兴趣是软件开发、商业投资、历史研究、家庭关系等。
           这个网站会汇总记录我的一些想法、思考、研究、实践等。
-        </ThemedText>
-      </ThemedView>
+      </ThemedText>
 
       {/* 博客列表部分 */}
       <ThemedView style={styles.section}>
