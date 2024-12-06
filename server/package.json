@@ -1,14 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon --exec ts-node server.ts",
     "build": "tsc",
     "serve": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy0": "scp -r dist/* package.json root@121.196.198.126:/usr/webserver/server && ssh root@121.196.198.126 \"cd /usr/webserver/server && pm2 startOrReload ecosystem.config.js\"",
-    "deploy1": "scp -r dist/* package.json root@114.55.64.28:/usr/webserver/server && ssh root@114.55.64.28 \"cd /usr/webserver/server && pm2 startOrReload ecosystem.config.js\""
+    "deploy1": "scp -r dist/*.js package.json root@114.55.64.28:/usr/webserver/server && ssh root@114.55.64.28 \"cd /usr/webserver/server && pm2 startOrReload ecosystem.config.cjs\""
   },
   "keywords": [],
   "author": "",

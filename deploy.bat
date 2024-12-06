@@ -12,9 +12,7 @@ echo [%date% %time%] Starting deployment... >> %LOGFILE%
 cd server
 call npm run deploy1 >> %LOGFILE% 2>&1
 
-echo [%date% %time%] Deployment process completed >> %LOGFILE%
-echo Deployment process completed. Check %LOGFILE% for details
-pause 
+echo [%date% %time%] server Deployment process completed >> %LOGFILE%
 
 :: 切换到项目目录
 cd ../client/my-app
@@ -40,3 +38,6 @@ if %ERRORLEVEL% EQU 0 (
     exit /b 1
 )
 
+echo [%date% %time%] Deployment process completed >> %LOGFILE%
+echo Deployment process completed. Check %LOGFILE% for details
+pause 
